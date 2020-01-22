@@ -1,0 +1,26 @@
+{
+  "name": "markdown-previewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "like_button.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JayMatsushiba/markdown-previewer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JayMatsushiba/markdown-previewer/issues"
+  },
+  "homepage": "https://github.com/JayMatsushiba/markdown-previewer#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
+    "chokidar": "^3.3.1",
+    "react-html-parser": "^2.0.2"
+  }
+}
