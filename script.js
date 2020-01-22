@@ -14,11 +14,9 @@ marked.setOptions({
     breaks: true
 });
 
-// INSERTS target="_blank" INTO HREF TAGS (required for codepen links)
+// idk what this does but seems necessary for code to work
 var renderer = new marked.Renderer();
-renderer.link = function (href, title, text) {
-    return '<a target="_blank" href="' + href + '">' + text + '</a>';
-};
+
 var e = React.createElement;
 
 var App = function (_React$Component) {
@@ -38,49 +36,49 @@ var App = function (_React$Component) {
     }
 
     _createClass(App, [{
-        key: 'handleChange',
+        key: "handleChange",
         value: function handleChange(event) {
             this.setState({ markdown: event.target.value });
         }
     }, {
-        key: 'render',
+        key: "render",
         value: function render() {
             return React.createElement(
-                'div',
-                { className: 'container' },
+                "div",
+                { className: "container" },
                 React.createElement(
-                    'div',
-                    { className: 'row pt-4' },
+                    "div",
+                    { className: "row pt-4" },
                     React.createElement(
-                        'h3',
+                        "h3",
                         null,
-                        'Editor'
+                        "Editor"
                     )
                 ),
                 React.createElement(
-                    'div',
-                    { className: 'row' },
+                    "div",
+                    { className: "row" },
                     React.createElement(
-                        'div',
-                        { className: 'col' },
+                        "div",
+                        { className: "col" },
                         React.createElement(Editor, { markdown: this.state.markdown, onChange: this.handleChange })
                     )
                 ),
                 React.createElement(
-                    'div',
-                    { className: 'row pt-4' },
+                    "div",
+                    { className: "row pt-4" },
                     React.createElement(
-                        'h3',
+                        "h3",
                         null,
-                        'Previewer'
+                        "Previewer"
                     )
                 ),
                 React.createElement(
-                    'div',
-                    { className: 'row' },
+                    "div",
+                    { className: "row" },
                     React.createElement(
-                        'div',
-                        { className: 'col' },
+                        "div",
+                        { className: "col" },
                         React.createElement(Preview, { markdown: this.state.markdown })
                     )
                 )
@@ -94,21 +92,22 @@ var App = function (_React$Component) {
 ;
 
 var Editor = function Editor(props) {
-    return React.createElement('textarea', { id: 'editor',
-        className: 'border rounded',
+    return React.createElement("textarea", { id: "editor",
+        className: "border rounded",
         value: props.markdown,
         onChange: props.onChange,
-        rows: '10',
-        type: 'text' });
+        rows: "10",
+        type: "text" });
 };
 
 var Preview = function Preview(props) {
-    return React.createElement('div', { id: 'preview',
-        className: 'border border-success p-2 rounded',
-        dangerouslySetInnerHTML: { __html: marked(props.markdown, { renderer: renderer }) } });
+    return React.createElement("div", { id: "preview",
+        className: "border border-success p-2 rounded"
+        // idk what the renderer does but seems necessary 
+        , dangerouslySetInnerHTML: { __html: marked(props.markdown, { renderer: renderer }) } });
 };
 
-var placeholder = '# Welcome to my Markdown Previewer \n## I built this app with React for FreeCodeCamp\n\nYou can use backticks to insert code into the previewer! `<div></div>`\nPretty cool right?\n\nYou can even put in **multiple** lines with triple back ticks:\n``` \n<!DOCTYPE html>\n<head>\n    <title>Markdown Previewer</title>\n</head>\n<body>\n    <p>Welcome!</p>\n</body>\n``` \n\n> Block quotes are also pretty cool \n[Links](https://www.freecodecamp.com) are lit too! \n\n1. First\n2. Second\n3. Third\n4. Fourth\n\nAlso get some images in here!\n![Red toyota supra](https://cnet4.cbsistatic.com/img/HU43bEYUGuUv6pQ63m2pERjhBfQ=/980x551/2019/08/20/d774d1cc-b665-4f86-a50a-e336b0120e04/2020-toyota-supra-1.jpg)\n';
+var placeholder = "# Welcome to my Markdown Previewer \n## I built this app with React for FreeCodeCamp\n\nYou can use backticks to insert code into the previewer! `<div></div>`\nPretty cool right?\n\nYou can even put in **multiple** lines with triple back ticks:\n``` \n<!DOCTYPE html>\n<head>\n    <title>Markdown Previewer</title>\n</head>\n<body>\n    <p>Welcome!</p>\n</body>\n``` \n\n> Block quotes are also pretty cool \n[Links](https://www.freecodecamp.com) are lit too! \n\n1. First\n2. Second\n3. Third\n4. Fourth\n\nAlso get some images in here!\n![Red toyota supra](https://cnet4.cbsistatic.com/img/HU43bEYUGuUv6pQ63m2pERjhBfQ=/980x551/2019/08/20/d774d1cc-b665-4f86-a50a-e336b0120e04/2020-toyota-supra-1.jpg)\n";
 
 var domContainer = document.querySelector('#container');
 ReactDOM.render(e(App), domContainer);

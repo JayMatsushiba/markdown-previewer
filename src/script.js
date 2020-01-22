@@ -5,11 +5,9 @@ marked.setOptions({
     breaks: true,
   });
   
-  // INSERTS target="_blank" INTO HREF TAGS (required for codepen links)
-  const renderer = new marked.Renderer();
-  renderer.link = function (href, title, text) {
-    return `<a target="_blank" href="${href}">${text}` + '</a>';
-  }
+// idk what this does but seems necessary for code to work
+const renderer = new marked.Renderer();
+
 const e = React.createElement;
 
 
@@ -67,6 +65,7 @@ const Preview = (props) => {
     return (
         <div id='preview' 
         className="border border-success p-2 rounded"
+        // idk what the renderer does but seems necessary 
         dangerouslySetInnerHTML={{__html: marked(props.markdown, { renderer: renderer })}} />
     )
 }
